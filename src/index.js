@@ -1,7 +1,10 @@
-const express = require("express");
+import express from "express";
 const app = express();
-const port = 8080;
 
-app.get("/", (req, res) => res.send("Hello World!"));
+import userRoutes from "./user/routes";
+import taskRoutes from "./task/routes";
 
-app.listen(port, () => console.log(`Server started at http://localhost:${port}`));
+app.use("/user", userRoutes);
+app.use("/task", taskRoutes);
+
+app.listen(8080);
