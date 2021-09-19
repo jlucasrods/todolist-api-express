@@ -3,10 +3,8 @@ services:
   mongodb:
     image: mongo
     container_name: mongodb
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=MyUser
-      - MONGO_INITDB_ROOT_PASSWORD=MyPassword
-      - MONGO_INITDB_DATABASE=MyDB
+    env_file:
+      - .env
     ports:
       - 27017:27017
     restart: always
